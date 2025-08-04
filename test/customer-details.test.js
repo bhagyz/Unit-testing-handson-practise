@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { fixture, html, expect } from '@open-wc/testing';
 import sinon from 'sinon';
 import '../src/Customer/Customer-details.js';
