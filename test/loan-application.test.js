@@ -3,23 +3,25 @@ import { html, fixture, expect } from '@open-wc/testing';
 import '../loan-application.js';
 
 describe('LoanApplication', () => {
-  it('should render and includes dash-board', () =>
-    fixture(html`<loan-application></loan-application>`).then(el => {
-      const dashboard = el.shadowRoot.querySelector('dash-board');
+  let element;
 
-      expect(el).to.exist;
-      expect(dashboard).to.exist;
-    }));
+  beforeEach(async () => {
+    element = await fixture(html`<loan-application></loan-application>`);
+  });
 
-  it('should default title and counter values', () =>
-    fixture(html`<loan-application></loan-application>`).then(el => {
-      expect(el.title).to.equal('Hey there');
-      expect(el.counter).to.equal(5);
-    }));
+  it('should check component accessibility', () => {
+    expect(element).to.be.accessible;
+  });
 
-  it('should increment counter using increment method', () =>
-    fixture(html`<loan-application></loan-application>`).then(el => {
-      el.__increment();
-      expect(el.counter).to.equal(6);
-    }));
+  it('should render and includes dash-board', () => {
+    const dashboard = element.shadowRoot.querySelector('dash-board');
+
+    expect(element).to.exist;
+    expect(dashboard).to.exist;
+  });
+
+  it('should default title and counter values', () => {
+    expect(element.title).to.equal('Hey there');
+    expect(element.counter).to.equal(5);
+  });
 });

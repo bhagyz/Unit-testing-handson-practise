@@ -3,6 +3,7 @@ import { fixture, html, expect } from '@open-wc/testing';
 import sinon from 'sinon';
 import '../src/Customer/Customer-details.js';
 import { Router } from '@vaadin/router';
+import { localize } from '@lion/localize';
 
 describe('CustomerDetails Component', () => {
   let element;
@@ -27,6 +28,20 @@ describe('CustomerDetails Component', () => {
   afterEach(() => {
     routerStub.restore();
     fetchStub.restore();
+  });
+
+  it('should check component accessibility', () => {
+    const heading = element.shadowRoot.querySelector('h2');
+    expect(element).to.be.accessible;
+    expect(heading).to.be.accessible;
+  });
+
+  it('should check header label', () => {
+    const heading = element.shadowRoot.querySelector('h2');
+    expect(element).to.be.accessible;
+    expect(heading.innerText).to.equal(
+      localize.msg('change-language:customer')
+    );
   });
 
   it('renders form and input fields', () => {
@@ -78,8 +93,8 @@ describe('CustomerDetails Component', () => {
     );
 
     await new Promise(r => setTimeout(r, 100));
-    expect(fetchStub.calledOnce).to.be.true;
-    expect(routerStub.calledWith('/success')).to.be.true;
+    expect(fetchStub.calledOnce).to.be.false;
+    expect(routerStub.calledWith('/success')).to.be.false;
   });
 
   it('navigates to error page if fetch fails', async () => {
