@@ -38,9 +38,9 @@ describe('Header Component', () => {
     const heading = shadow.querySelector('p');
     const enBtn = shadow.querySelector('#en-GB');
     const nlBtn = shadow.querySelector('#nl-NL');
-    expect(heading).to.exist;
-    expect(enBtn).to.exist;
-    expect(nlBtn).to.exist;
+    expect(heading).to.be.accessible;
+    expect(enBtn).to.be.accessible;
+    expect(nlBtn).to.be.accessible;
     expect(enBtn.textContent.trim()).to.equal('EN');
     expect(nlBtn.textContent.trim()).to.equal('NL');
   });

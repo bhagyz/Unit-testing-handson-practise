@@ -48,19 +48,19 @@ describe('CustomerDetails Component', () => {
     const form = element.shadowRoot.querySelector('lion-form');
     expect(form).to.exist;
     expect(element.shadowRoot.querySelector('lion-input[name="first_name"]')).to
-      .exist;
+      .be.accessible;
     expect(element.shadowRoot.querySelector('lion-input[name="last_name"]')).to
-      .exist;
+      .be.accessible;
     expect(element.shadowRoot.querySelector('lion-input-email[name="email"]'))
-      .to.exist;
+      .to.be.accessible;
     expect(
       element.shadowRoot.querySelector(
         'lion-input-amount[name="monthly_salary"]'
       )
-    ).to.exist;
+    ).to.be.accessible;
     expect(
       element.shadowRoot.querySelector('lion-checkbox-group[name="terms"]')
-    ).to.exist;
+    ).to.be.accessible;
   });
 
   it('navigates to /emidetails on back button click', () => {
