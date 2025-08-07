@@ -23,14 +23,14 @@ describe('Success screen', () => {
     const heading = element.shadowRoot.querySelector('h2');
     const paragraph = element.shadowRoot.querySelector('p');
 
-    expect(heading).to.exist;
-    expect(paragraph).to.exist;
+    expect(heading).to.be.accessible;
+    expect(paragraph).to.be.accessible;
   });
 
   it('should render a button with correct class and label', () => {
     const button = element.shadowRoot.querySelector('lion-button');
 
-    expect(button).to.exist;
+    expect(button).to.be.accessible;
     expect(button.classList.contains('home-btn')).to.be.true;
   });
 

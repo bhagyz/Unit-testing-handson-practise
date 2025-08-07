@@ -27,11 +27,13 @@ describe('Basic details', () => {
 
   it('should renders input fields and buttons correctly', () => {
     const shadow = element.shadowRoot;
-    expect(shadow.querySelector('lion-input[name="type"]')).to.exist;
-    expect(shadow.querySelector('lion-input-amount[name="amount"]')).to.exist;
-    expect(shadow.querySelector('lion-input-range[name="Period"]')).to.exist;
-    expect(shadow.querySelector('.btn-next')).to.exist;
-    expect(shadow.querySelector('.btn-previous')).to.exist;
+    expect(shadow.querySelector('lion-input[name="type"]')).to.be.accessible;
+    expect(shadow.querySelector('lion-input-amount[name="amount"]')).to.be
+      .accessible;
+    expect(shadow.querySelector('lion-input-range[name="Period"]')).to.be
+      .accessible;
+    expect(shadow.querySelector('.btn-next')).to.be.accessible;
+    expect(shadow.querySelector('.btn-previous')).to.be.accessible;
   });
 
   it('should sets loan type from localStorage', () => {

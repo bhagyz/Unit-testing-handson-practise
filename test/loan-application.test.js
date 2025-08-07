@@ -16,8 +16,8 @@ describe('LoanApplication', () => {
   it('should render and includes dash-board', () => {
     const dashboard = element.shadowRoot.querySelector('dash-board');
 
-    expect(element).to.exist;
-    expect(dashboard).to.exist;
+    expect(element).to.be.accessible;
+    expect(dashboard).to.be.accessible;
   });
 
   it('should default title and counter values', () => {

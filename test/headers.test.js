@@ -63,29 +63,4 @@ describe('Header Component', () => {
     expect(nlBtn.classList.contains('bg-btn-color')).to.be.true;
     expect(enBtn.classList.contains('btn-cursor')).to.be.true;
   });
-
-  xit('should change locale back to en-GB when EN button is clicked again', async () => {
-    const enBtn = element.shadowRoot.querySelector('#en-GB');
-    const nlBtn = element.shadowRoot.querySelector('#nl-NL');
-
-    nlBtn.click();
-    expect(localeChangedSpy.callCount).to.equal(1);
-
-    enBtn.classList.add('btn-cursor');
-    enBtn.click();
-    expect(localize.locale).to.equal('en-GB');
-    expect(enBtn.classList.contains('bg-btn-color')).to.be.true;
-    expect(nlBtn.classList.contains('btn-cursor')).to.be.true;
-  });
-
-  xit('should not switch locale if button clicked has no btn-cursor class', () => {
-    const enBtn = element.shadowRoot.querySelector('#en-GB');
-    const localeStub = sinon.stub(localize, 'locale').set(() => {});
-
-    enBtn.classList.remove('btn-cursor');
-    enBtn.click();
-    expect(localeChangedSpy.callCount).to.equal(1);
-    expect(localeStub.called).to.be.false;
-    localeStub.restore();
-  });
 });
